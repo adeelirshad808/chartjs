@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Sarmaaya Charts</title>
+
+</head>
+<style>
+    .chartBox {
+        width: 600px !important;
+        height: 1000px !important;
+    }
+</style>
+
+
+<body>
+    <div class="chartBox">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2018', '2019', '2020', 'TTM'],
+                datasets: [
+                    {
+                        label: '# of Votes',
+                        data: [25, 26, 25, 28],
+                        backgroundColor: '011b27',
+                        borderWidth: 1,
+                        borderColor: '011b27',
+                        yAxisID: 'y',
+                        borderWidth: 1,
+                        pointRadius: 4,
+                        pointBorderWidth: 2,
+
+                    },
+                    {
+                        label: 'percentage',
+                        backgroundColor: 'rgb(23, 152, 196)',
+                        data: [27, 28, 27, 30],
+                        borderWidth: 0,
+                        borderColor: 'rgb(23, 152, 196)',
+                        yAxisID: 'percentage',
+                        borderWidth: 1,
+                        pointRadius: 4,
+                        pointBorderWidth: 2,
+
+                    },
+                ]
+            },
+            options: {
+                layout: {
+                    padding: 40
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            boxWidth: 20
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        type: 'linear',
+                        position: 'left',
+                        grid: {
+                            display: false,
+
+                        },
+                        title: {
+                            display: true,
+                            text: 'Y axis title',
+                            color: 'green',
+
+                        }
+                    },
+                    percentage: {
+                        beginAtZero: true,
+                        type: 'linear',
+                        position: 'right',
+                        grid: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Ysecond axis title',
+                            fontSize: 12
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script src="./chart.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
